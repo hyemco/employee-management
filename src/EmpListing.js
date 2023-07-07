@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const EmpListing = () => {
   const [empdata, empdatachange] = useState(null);
-
-
 
   useEffect(() => {
     fetch("http://localhost:8000/employee").then((res) => {
@@ -15,17 +14,17 @@ const EmpListing = () => {
       console.log(err.message);
     })
   }, [])
-  
 
-
-
-  return ( 
+  return (
     <div className="container">
       <div className="card">
         <div className="card-title">
           <h2>Employee Listing</h2>
         </div>
         <div className="card-body">
+          <div className="divbtn">
+            <Link to="employee/create" className="btn btn-success">Add New (+)</Link>
+          </div>
           <table className="table table-bordered">
             <thead className="bg-dark text-white">
               <tr>
@@ -37,7 +36,7 @@ const EmpListing = () => {
               </tr>
             </thead>
             <tbody>
-              {empdata && 
+              {empdata &&
                 empdata.map(item => (
                   <tr key={item.id}>
                     <td>{item.id}</td>
