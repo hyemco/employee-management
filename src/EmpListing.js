@@ -9,6 +9,10 @@ const EmpListing = () => {
     navigate("/employee/detail/" + id);
   }
 
+  const LoadEdit = (id) => {
+    navigate("/employee/edit/" + id);
+  }
+
   useEffect(() => {
     fetch("http://localhost:8000/employee")
     .then((res) => {
@@ -50,7 +54,7 @@ const EmpListing = () => {
                     <td>{item.email}</td>
                     <td>{item.phone}</td>
                     <td>
-                      <a className="btn btn-success">Edit</a>
+                      <a onClick={() => { LoadEdit(item.id) }} className="btn btn-success">Edit</a>
                       <a className="btn btn-danger">Remove</a>
                       <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a>
                     </td>
