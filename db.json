@@ -12,6 +12,13 @@
       "phone": "01010000",
       "active": true,
       "id": 2
+    },
+    {
+      "name": "user2",
+      "email": "user2@naver.com",
+      "phone": "01020000",
+      "active": true,
+      "id": 3
     }
   ]
 }
