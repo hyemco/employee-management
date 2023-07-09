@@ -13,6 +13,19 @@ const EmpListing = () => {
     navigate("/employee/edit/" + id);
   }
 
+  const RemoveInfo = (id) => {
+    if (window.confirm('Do you want to remove?')) {
+      fetch("http://localhost:8000/employee/" + id, {
+        method: "DELETE"
+      }).then((res) => {
+        alert("Removed succesfully!");
+        window.location.reload();
+      }).catch((err) => {
+        console.log(err.message);
+      })
+    }
+  }
+
   useEffect(() => {
     fetch("http://localhost:8000/employee")
     .then((res) => {
@@ -55,7 +68,7 @@ const EmpListing = () => {
                     <td>{item.phone}</td>
                     <td>
                       <a onClick={() => { LoadEdit(item.id) }} className="btn btn-success">Edit</a>
-                      <a className="btn btn-danger">Remove</a>
+                      <a onClick={() => {RemoveInfo(item.id)}} className="btn btn-danger">Remove</a>
                       <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a>
                     </td>
                   </tr>

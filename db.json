@@ -11,13 +11,6 @@
       "name": "user1",
       "email": "user1@in.kr",
       "phone": "010-1000-2000"
-    },
-    {
-      "name": "user2",
-      "email": "user2@naver.com",
-      "phone": "01020000",
-      "active": true,
-      "id": 3
     }
   ]
 }
